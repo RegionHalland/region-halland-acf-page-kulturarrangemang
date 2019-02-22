@@ -7,7 +7,7 @@ Nedan följer instruktioner hur du kan använda pluginet "region-halland-acf-pag
 
 ## Användningsområde
 
-Denna plugin ger möjlighet att skapa poster med kulturhändelser
+Denna plugin ger möjlighet att skapa poster med kulturevenemang
 
 
 ## Installation och aktivering
