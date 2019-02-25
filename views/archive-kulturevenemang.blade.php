@@ -6,7 +6,7 @@
 	<div class="container mx-auto px-4">
 		<div class="w-full mx-auto">
 			<div class="flex flex-wrap -mx-4">
-				Arkivsida för kulturkatalogen
+				Arkivsida för kulturevenemang
 			</div>
 		</div>
 	</div>

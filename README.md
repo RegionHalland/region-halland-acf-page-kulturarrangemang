@@ -70,6 +70,9 @@ OBS! Justera så att du hämtar aktuell version.
 
 ## Versionhistorik
 
+### 1.1.1
+- Uppdaterade arkiv-sidan
+
 ### 1.1.0
 - Adderade has_archive = true för att kunnna ha en arkiv-sida
 
