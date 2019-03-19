@@ -1,13 +1,13 @@
-# Visa kulturevenemang
+# Visa kulturarrangemang
 
-## Hur man använder Region Hallands plugin "region-halland-acf-page-kulturevenemang"
+## Hur man använder Region Hallands plugin "region-halland-acf-page-kulturarrangemang"
 
-Nedan följer instruktioner hur du kan använda pluginet "region-halland-acf-page-kulturevenemang".
+Nedan följer instruktioner hur du kan använda pluginet "region-halland-acf-page-kulturarrangemang".
 
 
 ## Användningsområde
 
-Denna plugin ger möjlighet att skapa poster med kulturevenemang
+Denna plugin ger möjlighet att skapa poster med kulturarrangemang
 
 
 ## Installation och aktivering
@@ -22,7 +22,7 @@ C) Aktivera pluginet inifrån Wordpress admin
 ## Hämta hem pluginet via Git
 
 ```sh
-git clone https://github.com/RegionHalland/region-halland-acf-page-kulturevenemang.git
+git clone https://github.com/RegionHalland/region-halland-acf-page-kulturarrangemang.git
 ```
 
 
@@ -36,7 +36,7 @@ Repositories = var pluginen är lagrad, i detta fall på github
 "repositories": [
   {
     "type": "vcs",
-    "url": "https://github.com/RegionHalland/region-halland-acf-page-kulturevenemang.git"
+    "url": "https://github.com/RegionHalland/region-halland-acf-page-kulturarrangemang.git"
   },
 ],
 ```
@@ -46,7 +46,7 @@ OBS! Justera så att du hämtar aktuell version.
 
 ```sh
 "require": {
-  "regionhalland/region-halland-acf-page-kulturevenemang": "1.0.0"
+  "regionhalland/region-halland-acf-page-kulturarrangemang": "1.0.0"
 },
 ```
 
@@ -55,23 +55,23 @@ OBS! Justera så att du hämtar aktuell version.
 
 ```sh
 <ol>
-  <li>Typ: {{ get_region_halland_acf_page_kulturevenemang_type_name() }}</li>
-  <li>Kategori: {{ get_region_halland_acf_page_kulturevenemang_category_name() }}</li>
-  <li>Subkategori: {{ get_region_halland_acf_page_kulturevenemang_subcategory_name() }}</li>
-  <li>Fullbokat: {{ get_region_halland_acf_page_kulturevenemang_fullbokat() }}</li>
-  <li>Tid: {{ get_region_halland_acf_page_kulturevenemang_tid() }}</li>
-  <li>Starttid: {{ get_region_halland_acf_page_kulturevenemang_start_tid() }}</li>
-  <li>Sluttid: {{ get_region_halland_acf_page_kulturevenemang_slut_tid() }}</li>
-  <li>Plats: {{ get_region_halland_acf_page_kulturevenemang_plats() }}</li>
-  <li>Sista anmälningstid: {{ get_region_halland_acf_page_kulturevenemang_sista_anmalningstid() }}</li>
-  <li>Målgrupp: {{ get_region_halland_acf_page_kulturevenemang_malgrupp() }}</li>
+  <li>Typ: {{ get_region_halland_acf_page_kulturarrangemang_type_name() }}</li>
+  <li>Kategori: {{ get_region_halland_acf_page_kulturarrangemang_category_name() }}</li>
+  <li>Subkategori: {{ get_region_halland_acf_page_kulturarrangemang_subcategory_name() }}</li>
+  <li>Fullbokat: {{ get_region_halland_acf_page_kulturarrangemang_fullbokat() }}</li>
+  <li>Tid: {{ get_region_halland_acf_page_kulturarrangemang_tid() }}</li>
+  <li>Starttid: {{ get_region_halland_acf_page_kulturarrangemang_start_tid() }}</li>
+  <li>Sluttid: {{ get_region_halland_acf_page_kulturarrangemang_slut_tid() }}</li>
+  <li>Plats: {{ get_region_halland_acf_page_kulturarrangemang_plats() }}</li>
+  <li>Sista anmälningstid: {{ get_region_halland_acf_page_kulturarrangemang_sista_anmalningstid() }}</li>
+  <li>Målgrupp: {{ get_region_halland_acf_page_kulturarrangemang_malgrupp() }}</li>
 </ol>
 ```        
 
 ## Lista allt innehåll via "Blade" på en sida
 
 ```sh
-@php($myItems = get_region_halland_acf_page_kulturevenemang_items())
+@php($myItems = get_region_halland_acf_page_kulturarrangemang_items())
 @foreach($myItems as $item)
   <h2>{{ $item->post_title }}</h2><br>
   <span>{{ $item->post_ingress }}</span><br><br>
@@ -113,7 +113,7 @@ array (size=2)
       public 'post_parent' => int 0
       public 'guid' => string 'http://exempel.se/?post_type=kulturevenemang&#038;p=1997' (length=56)
       public 'menu_order' => int 0
-      public 'post_type' => string 'kulturevenemang' (length=15)
+      public 'post_type' => string 'kulturarrangemang' (length=17)
       public 'post_mime_type' => string '' (length=0)
       public 'comment_count' => string '0' (length=1)
       public 'filter' => string 'raw' (length=3)
@@ -152,7 +152,7 @@ array (size=2)
       public 'post_parent' => int 0
       public 'guid' => string 'http://exempel.se/?post_type=kulturevenemang&#038;p=1753' (length=56)
       public 'menu_order' => int 0
-      public 'post_type' => string 'kulturevenemang' (length=15)
+      public 'post_type' => string 'kulturarrangemang' (length=17)
       public 'post_mime_type' => string '' (length=0)
       public 'comment_count' => string '0' (length=1)
       public 'filter' => string 'raw' (length=3)
