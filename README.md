@@ -111,18 +111,18 @@ array (size=2)
       public 'post_modified_gmt' => string '2019-03-19 09:24:07' (length=19)
       public 'post_content_filtered' => string '' (length=0)
       public 'post_parent' => int 0
-      public 'guid' => string 'http://exempel.se/?post_type=kulturevenemang&#038;p=1997' (length=56)
+      public 'guid' => string 'http://exempel.se/?post_type=kulturarrangemang&#038;p=1997' (length=56)
       public 'menu_order' => int 0
       public 'post_type' => string 'kulturarrangemang' (length=17)
       public 'post_mime_type' => string '' (length=0)
       public 'comment_count' => string '0' (length=1)
       public 'filter' => string 'raw' (length=3)
       public 'post_ingress' => string 'Min ingress' (length=11)
-      public 'url' => string 'http://exempel.se/kulturevenemang/poetry-slam-i-hylte/' (length=54)
+      public 'url' => string 'http://exempel.se/kulturarrangemang/poetry-slam-i-hylte/' (length=56)
       public 'image' => string '' (length=0)
       public 'image_url' => boolean false
       public 'date' => string '2019-02-26' (length=10)
-      public 'kultur_typ' => string 'Evenemang' (length=9)
+      public 'kultur_typ' => string 'Arrangemang' (length=9)
       public 'kultur_category' => string 'Kultur' (length=6)
       public 'kultur_sub_category' => string 'Dans' (length=4)
       public 'kultur_fullbokat_int' => int 0
@@ -150,18 +150,18 @@ array (size=2)
       public 'post_modified_gmt' => string '2019-03-19 09:45:01' (length=19)
       public 'post_content_filtered' => string '' (length=0)
       public 'post_parent' => int 0
-      public 'guid' => string 'http://exempel.se/?post_type=kulturevenemang&#038;p=1753' (length=56)
+      public 'guid' => string 'http://exempel.se/?post_type=kulturarrangemang&#038;p=1753' (length=56)
       public 'menu_order' => int 0
       public 'post_type' => string 'kulturarrangemang' (length=17)
       public 'post_mime_type' => string '' (length=0)
       public 'comment_count' => string '0' (length=1)
       public 'filter' => string 'raw' (length=3)
       public 'post_ingress' => string 'Alla är välkomna' (length=18)
-      public 'url' => string 'http://exempel.se/kulturevenemang/poetry-slam-i-halmstad/' (length=57)
+      public 'url' => string 'http://exempel.se/kulturarrangemang/poetry-slam-i-halmstad/' (length=59)
       public 'image' => string '' (length=0)
       public 'image_url' => boolean false
       public 'date' => string '2019-02-22' (length=10)
-      public 'kultur_typ' => string 'Evenemang' (length=9)
+      public 'kultur_typ' => string 'Arrangemang' (length=9)
       public 'kultur_category' => string 'Kultur' (length=6)
       public 'kultur_sub_category' => string 'Film' (length=4)
       public 'kultur_fullbokat_int' => int 0
