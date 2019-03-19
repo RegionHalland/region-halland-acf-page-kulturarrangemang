@@ -1,6 +1,6 @@
 {
-    "name": "regionhalland/region-halland-acf-page-kulturevenemang",
-    "description": "Visa kulturevenemang",
+    "name": "regionhalland/region-halland-acf-page-kulturarrangemang",
+    "description": "Visa kulturarrangemang",
     "type": "wordpress-plugin",
     "license": "MIT",
     "authors": [

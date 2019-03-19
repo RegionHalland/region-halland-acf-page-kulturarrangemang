@@ -174,6 +174,11 @@ array (size=2)
 
 ## Versionhistorik
 
+### 2.0.0
+- Bytt namn på hela pluginen inkl posttyp från kulturevenemang till kulturarrangemang
+- Bytt ut alla funktionsnamn och ersatt evenemang med arrangemang
+- Uppdaterat single- och archive- med nya funktionsnamn
+
 ### 1.2.0
 - Nytt fält, fritext för tid
 - Nytt fält, ingress som komplement till the_content

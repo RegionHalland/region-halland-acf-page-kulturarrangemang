@@ -5,7 +5,7 @@
 <main class="bg-white pt-12 pb-8" id="main">
 	<div class="container mx-auto px-4">
 		<div class="w-full mx-auto">
-			@php($myItems = get_region_halland_acf_page_kulturevenemang_items())
+			@php($myItems = get_region_halland_acf_page_kulturarrangemang_items())
 			@foreach($myItems as $item)
 				<h2>{{ $item->post_title }}</h2><br>
 				<span>{{ $item->post_ingress }}</span><br><br>
