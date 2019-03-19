@@ -6,7 +6,7 @@
 	/*
 	Plugin Name: Region Halland ACF Page Kulturevenemang
 	Description: ACF-fält för extra fält nederst på en kulturevenemangs-sida
-	Version: 1.1.1
+	Version: 1.2.0
 	Author: Roland Hydén
 	License: MIT
 	Text Domain: regionhalland
@@ -62,6 +62,25 @@
 			    'title' => 'Kulturevenemang',
 			    'fields' => array(
 			        0 => array(
+			        	'key' => 'field_1000128',
+			            'label' => __('Ingress', 'regionhalland'),
+			            'name' => 'name_1000129',
+			            'type' => 'textarea',
+			            'instructions' => __('Ingress. Max 200 tecken.', 'regionhalland'),
+			            'required' => 0,
+			            'conditional_logic' => 0,
+			            'wrapper' => array(
+			                'width' => '',
+			                'class' => '',
+			                'id' => '',
+			            ),
+			            'default_value' => '',
+			            'placeholder' => __('', 'regionhalland'),
+			            'maxlength' => 200,
+			            'rows' => 4,
+			            'new_lines' => '',
+			        ),
+			        1 => array(
 			        	'key' => 'field_1000085',
 			            'label' => __('Typ', 'regionhalland'),
 			            'name' => 'name_1000086',
@@ -94,7 +113,7 @@
 			            'return_format' => 'value',
 			            'placeholder' => '',
 			        ),
-			        1 => array(
+			        2 => array(
 			        	'key' => 'field_1000088',
 			            'label' => __('Kategori', 'regionhalland'),
 			            'name' => 'name_1000089',
@@ -127,7 +146,7 @@
 			            'return_format' => 'value',
 			            'placeholder' => '',
 			        ),
-			        2 => array(
+			        3 => array(
 			        	'key' => 'field_1000091',
 			            'label' => __('Underkategori', 'regionhalland'),
 			            'name' => 'name_1000092',
@@ -162,7 +181,7 @@
 			            'return_format' => 'value',
 			            'placeholder' => '',
 			        ),
-			        3 => array(
+			        4 => array(
 			          	'key' => 'field_1000094',
 			            'label' => __('Är detta evenemang fullbokat', 'regionhalland'),
 			            'name' => 'name_1000095',
@@ -186,7 +205,26 @@
 			            'toggle' => 0,
 			            'return_format' => 'value',
 			    	),
-					4 => array( 
+					5 => array(
+			        	'key' => 'field_1000126',
+			            'label' => __('Tid', 'regionhalland'),
+			            'name' => 'name_1000127',
+			            'type' => 'text',
+			            'instructions' => __('Ange tid. Max 100 tecken.', 'regionhalland'),
+			            'required' => 0,
+			            'conditional_logic' => 0,
+			            'wrapper' => array(
+			                'width' => '',
+			                'class' => '',
+			                'id' => '',
+			            ),
+			            'default_value' => '',
+			            'placeholder' => __('', 'regionhalland'),
+			            'maxlength' => 100,
+			            'rows' => 2,
+			            'new_lines' => '',
+			        ),
+			        6 => array( 
 		              'key' => 'field_1000097', 
 		              'label' => __('Starttid', 'regionhalland'), 
 		              'name' => 'name_1000098', 
@@ -203,7 +241,7 @@
 		              'return_format' => 'Y-m-d', 
 		              'first_day' => 1, 
 		          	), 
-		          	5 => array( 
+		          	7 => array( 
 		          	  'key' => 'field_1000099', 
 		              'label' => __('Sluttid', 'regionhalland'), 
 		              'name' => 'name_1000100', 
@@ -220,7 +258,7 @@
 		              'return_format' => 'Y-m-d', 
 		              'first_day' => 1, 
 		           	),
-			       	6 => array(
+			       	8 => array(
 			        	'key' => 'field_1000101',
 			            'label' => __('Plats', 'regionhalland'),
 			            'name' => 'name_1000102',
@@ -239,7 +277,7 @@
 			            'rows' => 2,
 			            'new_lines' => '',
 			       	),
-		          	7 => array( 
+		          	9 => array( 
 		          	  'key' => 'field_1000103', 
 		              'label' => __('Sista anmälningsdag', 'regionhalland'), 
 		              'name' => 'name_1000104', 
@@ -256,12 +294,12 @@
 		              'return_format' => 'Y-m-d', 
 		              'first_day' => 1, 
 		            ),
-			        8 => array(
+			        10 => array(
 			        	'key' => 'field_1000105',
 			            'label' => __('Målgrupp', 'regionhalland'),
 			            'name' => 'name_1000106',
 			            'type' => 'text',
-			            'instructions' => __('ANge målgrupp. Max 100 tecken.', 'regionhalland'),
+			            'instructions' => __('Ange målgrupp. Max 100 tecken.', 'regionhalland'),
 			            'required' => 0,
 			            'conditional_logic' => 0,
 			            'wrapper' => array(
@@ -299,6 +337,11 @@
 
 	}
 
+	// Returnera Ingress
+	function get_region_halland_acf_page_kulturevenemang_ingress() {
+		return get_field('name_1000129');
+	}
+
 	// Returnera namnet på vald typ
 	function get_region_halland_acf_page_kulturevenemang_type_name() {
 		$field_type = get_field_object('field_1000085');
@@ -328,6 +371,11 @@
 		return $strFullbokat;	
 	}
 	
+	// Returnera tid som fritext
+	function get_region_halland_acf_page_kulturevenemang_tid() {
+		return get_field('name_1000127');
+	}
+
 	// Returnera starttid
 	function get_region_halland_acf_page_kulturevenemang_start_tid() {
 		return get_field('name_1000098');	
@@ -351,6 +399,72 @@
 	// Returnera målgrupp
 	function get_region_halland_acf_page_kulturevenemang_malgrupp() {
 		return get_field('name_1000106');	
+	}
+
+	function get_region_halland_acf_page_kulturevenemang_items($myAntal = 3) {
+		
+		// Preparerar array för att hämta ut nyheter
+		$args = array( 
+			'post_type' => 'kulturevenemang',
+			'posts_per_page' => $myAntal,
+		);
+
+		// Hämta valda nyheter
+		$myPages = get_posts($args);
+		
+		foreach ($myPages as $page) {
+
+			// Ingress
+			$page->post_ingress = get_field('name_1000129', $page->ID);
+			
+			// Lägg till sidans url 	
+			$page->url = get_permalink($page->ID);
+
+			// Bild
+			$page->image = get_the_post_thumbnail($page->ID);
+			$page->image_url = get_the_post_thumbnail_url($page->ID);
+			
+			// Publicerad datum
+			$page->date = get_the_date('Y-m-d', $page->ID);
+
+			// Kulturtyp
+			$field_type_typ = get_field_object('field_1000085', $page->ID);
+			$page->kultur_typ = $field_type_typ['choices'][get_field('name_1000086', $page->ID)];
+
+			// Kategori
+			$field_type_category = get_field_object('field_1000088', $page->ID);
+			$page->kultur_category = $field_type_category['choices'][get_field('name_1000089', $page->ID)];
+			
+			// Subkategori
+			$field_type_sub_category = get_field_object('field_1000091', $page->ID);
+			$page->kultur_sub_category = $field_type_sub_category['choices'][get_field('name_1000092', $page->ID)];
+
+			// Fullbokat
+			$tmpFullbokat = is_array(get_field('name_1000095', $page->ID));
+			if ($tmpFullbokat == true) {
+				$strFullbokat = "Ja";
+				$intFullbokat = 1;
+			} else {
+				$strFullbokat = "Nej";
+				$intFullbokat = 0;
+			}
+			$page->kultur_fullbokat_int =  $intFullbokat;
+			$page->kultur_fullbokat =  $strFullbokat;
+
+			// Tidpunkt
+			$page->kultur_tid = get_field('name_1000127', $page->ID);
+
+			// Plats
+			$page->kultur_plats = get_field('name_1000102', $page->ID);
+
+			// Målgrupp
+			$page->kultur_malgrupp = get_field('name_1000106', $page->ID);
+		
+		}
+		
+		// Returnera array med alla poster
+		return $myPages;
+
 	}
 	
 	// Metod som anropas när pluginen aktiveras
