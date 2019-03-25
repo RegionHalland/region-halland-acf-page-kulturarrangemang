@@ -61,6 +61,8 @@ OBS! Justera så att du hämtar aktuell version.
   <li>Fullbokat: {{ get_region_halland_acf_page_kulturarrangemang_fullbokat() }}</li>
   <li>Tid: {{ get_region_halland_acf_page_kulturarrangemang_tid() }}</li>
   <li>Starttid: {{ get_region_halland_acf_page_kulturarrangemang_start_tid() }}</li>
+  <li>Dag: {{ get_region_halland_acf_page_kulturarrangemang_start_tid_dag() }}</li>
+  <li>Månad: {{ get_region_halland_acf_page_kulturarrangemang_start_tid_manad() }}</li>
   <li>Sluttid: {{ get_region_halland_acf_page_kulturarrangemang_slut_tid() }}</li>
   <li>Plats: {{ get_region_halland_acf_page_kulturarrangemang_plats() }}</li>
   <li>Sista anmälningstid: {{ get_region_halland_acf_page_kulturarrangemang_sista_anmalningstid() }}</li>
@@ -81,6 +83,8 @@ OBS! Justera så att du hämtar aktuell version.
   <span><strong>Subkategori:</strong> {{ $item->kultur_sub_category }}</span><br>
   <span><strong>Fullbokat:</strong> {{ $item->kultur_fullbokat }}</span><br>
   <span><strong>Tid:</strong> {{ $item->kultur_tid }}</span><br>
+  <span><strong>Dag:</strong> {{ $item->kultur_start_tid_dag }}</span><br>
+  <span><strong>Månad:</strong> {{ $item->kultur_start_tid_manad }}</span><br>
   <span><strong>Plats:</strong> {{ $item->kultur_plats }}</span><br>
   <span><strong>Målgrupp:</strong> {{ $item->kultur_malgrupp }}</span><br><br>
 @endforeach

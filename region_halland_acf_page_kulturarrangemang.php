@@ -6,7 +6,7 @@
 	/*
 	Plugin Name: Region Halland ACF Page Kulturarrangemang
 	Description: ACF-fält för extra fält nederst på en kulturarrangemangs-sida
-	Version: 2.0.0
+	Version: 2.1.0
 	Author: Roland Hydén
 	License: MIT
 	Text Domain: regionhalland
@@ -381,6 +381,34 @@
 		return get_field('name_1000098');	
 	}
 
+	// Returnera starttid (dag)
+	function get_region_halland_acf_page_kulturarrangemang_start_tid_dag() {
+		$kulturStartTid = get_field('name_1000098');	
+		$kulturDag = substr($kulturStartTid, 8, 2);
+		$kulturDagFirst = substr($kulturDag, 0, 1);
+		if ($kulturDagFirst == 0) {
+			$kulturStartTidDag = substr($kulturDag, 1, 1);
+		} else {
+			$kulturStartTidDag = $pageKulturDag;
+		}
+		return $kulturStartTidDag;	
+	}
+
+	// Returnera starttid (månad)
+	function get_region_halland_acf_page_kulturarrangemang_start_tid_manad() {
+		$kulturStartTid = get_field('name_1000098');	
+		$kulturManad = substr($kulturStartTid, 5, 2);
+			$kulturManadFirst = substr($kulturManad, 0, 1);
+			if ($kulturManadFirst == 0) {
+				$kulturStartTidManad = substr($kulturManad, 1, 1);
+			} else {
+				$kulturStartTidManad = $kulturManad;
+			}
+			$kulturStartTidManad = region_halland_acf_page_kulturarrangemang_manad($kulturStartTidManad);
+
+		return $kulturStartTidManad;	
+	}
+
 	// Returnera sluttid
 	function get_region_halland_acf_page_kulturarrangemang_slut_tid() {
 		return get_field('name_1000100');	
@@ -401,12 +429,25 @@
 		return get_field('name_1000106');	
 	}
 
-	function get_region_halland_acf_page_kulturarrangemang_items($myAntal = 3) {
+	function get_region_halland_acf_page_kulturarrangemang_items($myAntal = -1) {
+		
+		$date = date("Y-m-d");
 		
 		// Preparerar array för att hämta ut nyheter
 		$args = array( 
 			'post_type' => 'kulturarrangemang',
 			'posts_per_page' => $myAntal,
+			'meta_key' => 'name_1000098',
+            'orderby' => 'meta_value meta_value_num',
+            'order'	=> 'ASC',
+            'meta_query' => array(
+                array(
+                    'key' => 'name_1000100',
+                    'value' => $date,
+                    'compare' => '>='
+                )
+            ),
+            
 		);
 
 		// Hämta valda nyheter
@@ -451,6 +492,29 @@
 			$page->kultur_fullbokat_int =  $intFullbokat;
 			$page->kultur_fullbokat =  $strFullbokat;
 
+			// Starttid
+			$page->kultur_start_tid = get_field('name_1000098', $page->ID);
+			
+			$page_kultur_dag = substr($page->kultur_start_tid, 8, 2);
+			$page_kultur_dag_first = substr($page_kultur_dag, 0, 1);
+			if ($page_kultur_dag_first == 0) {
+				$page->kultur_start_tid_dag = substr($page_kultur_dag, 1, 1);
+			} else {
+				$page->kultur_start_tid_dag = $page_kultur_dag;
+			}
+
+			$page_kultur_manad = substr($page->kultur_start_tid, 5, 2);
+			$page_kultur_manad_first = substr($page_kultur_manad, 0, 1);
+			if ($page_kultur_manad_first == 0) {
+				$page_kultur_start_tid_manad = substr($page_kultur_manad, 1, 1);
+			} else {
+				$page_kultur_start_tid_manad = $page_kultur_manad;
+			}
+			$page->kultur_start_tid_manad = region_halland_acf_page_kulturarrangemang_manad($page_kultur_start_tid_manad);
+
+			// Sluttid
+			$page->kultur_slut_tid = get_field('name_1000100', $page->ID);
+			
 			// Tidpunkt
 			$page->kultur_tid = get_field('name_1000127', $page->ID);
 
@@ -467,6 +531,56 @@
 
 	}
 	
+	function region_halland_acf_page_kulturarrangemang_manad($manad) {
+		
+		// Temporär variabel för namn på månad
+		$strManad = "";
+
+		// Returna namn på månad
+		switch ($manad) {
+		     case '1':
+		         $strManad = "Jan";
+		         break;
+		     case '2':
+		         $strManad = "Feb";
+		         break;
+		     case '3':
+		         $strManad = "Mar";
+		         break;
+		     case '4':
+		         $strManad = "Apr";
+		         break;
+		     case '5':
+		         $strManad = "Maj";
+		         break;
+		     case '6':
+		         $strManad = "Jun";
+		         break;
+		     case '7':
+		         $strManad = "Jul";
+		         break;
+		     case '8':
+		         $strManad = "Aug";
+		         break;
+		     case '9':
+		         $strManad = "Sep";
+		         break;
+		     case '10':
+		         $strManad = "Okt";
+		         break;
+		     case '11':
+		         $strManad = "Nov";
+		         break;
+		     case '12':
+		         $strManad = "Dec";
+		         break;
+		 }
+
+		 // Returnera namn på månad
+		 return $strManad;
+
+	}
+
 	// Metod som anropas när pluginen aktiveras
 	function region_halland_acf_page_kulturarrangemang_activate() {
 		
