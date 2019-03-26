@@ -178,6 +178,12 @@ array (size=2)
 
 ## Versionhistorik
 
+### 2.1.1
+- Justerat funktioner för tid och månad
+
+### 2.1.0
+- Tid och månad som egna fält i arrayen
+
 ### 2.0.0
 - Bytt namn på hela pluginen inkl posttyp från kulturevenemang till kulturarrangemang
 - Bytt ut alla funktionsnamn och ersatt evenemang med arrangemang
