@@ -64,9 +64,10 @@ OBS! Justera så att du hämtar aktuell version.
   <li>Dag: {{ get_region_halland_acf_page_kulturarrangemang_start_tid_dag() }}</li>
   <li>Månad: {{ get_region_halland_acf_page_kulturarrangemang_start_tid_manad() }}</li>
   <li>Sluttid: {{ get_region_halland_acf_page_kulturarrangemang_slut_tid() }}</li>
-  <li>Plats: {{ get_region_halland_acf_page_kulturarrangemang_plats() }}</li>
+  <li>Plats: {!! get_region_halland_acf_page_kulturarrangemang_plats() !!}</li>
   <li>Sista anmälningstid: {{ get_region_halland_acf_page_kulturarrangemang_sista_anmalningstid() }}</li>
   <li>Målgrupp: {{ get_region_halland_acf_page_kulturarrangemang_malgrupp() }}</li>
+  <li>Entré: {!! get_region_halland_acf_page_kulturarrangemang_entre() !!}</li>
 </ol>
 ```        
 
@@ -85,8 +86,9 @@ OBS! Justera så att du hämtar aktuell version.
   <span><strong>Tid:</strong> {{ $item->kultur_tid }}</span><br>
   <span><strong>Dag:</strong> {{ $item->kultur_start_tid_dag }}</span><br>
   <span><strong>Månad:</strong> {{ $item->kultur_start_tid_manad }}</span><br>
-  <span><strong>Plats:</strong> {{ $item->kultur_plats }}</span><br>
+  <span><strong>Plats:</strong> {!! $item->kultur_plats !!}</span><br>
   <span><strong>Målgrupp:</strong> {{ $item->kultur_malgrupp }}</span><br><br>
+  <span><strong>Entré:</strong> {!! $item->kultur_entre !!}</span><br>
 @endforeach
 ```        
 
@@ -177,6 +179,12 @@ array (size=2)
 
 
 ## Versionhistorik
+
+### 2.2.0
+- Fler typer och möjlighet att välja en eller flera
+- Fler underkategorier och möjlighet att välja en eller flera
+- Plats är ändrad från textarea till texteditor
+- Nytt fält Entré som texteditor
 
 ### 2.1.1
 - Justerat funktioner för tid och månad

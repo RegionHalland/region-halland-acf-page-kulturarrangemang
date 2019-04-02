@@ -6,7 +6,7 @@
 	/*
 	Plugin Name: Region Halland ACF Page Kulturarrangemang
 	Description: ACF-fält för extra fält nederst på en kulturarrangemangs-sida
-	Version: 2.1.1
+	Version: 2.2.0
 	Author: Roland Hydén
 	License: MIT
 	Text Domain: regionhalland
@@ -102,15 +102,25 @@
 			                'id' => '',
 			            ),
 			            'choices' => array(
-			                1 => __('Arrangemang', 'regionhalland'),
+			                1 => 'Konsert',
+							2 => 'Föreställning',
+							3 => 'Festival',
+							4 => 'Utställning',
+							5 => 'Konferens',
+							6 => 'Fortbildning',
+							7 => 'Kurs / workshop',
+							8 => 'Föreläsning',
+							9 => 'Mötesplats',
+							10 => 'Samråd och dialog',
+							11 => 'Nätverksmöte'
 			            ),
 			            'default_value' => array(
 			            ),
 			            'allow_null' => 0,
-			            'multiple' => 0,
+			            'multiple' => 1,
 			            'ui' => 0,
 			            'ajax' => 0,
-			            'return_format' => 'value',
+			            'return_format' => 'array',
 			            'placeholder' => '',
 			        ),
 			        2 => array(
@@ -168,17 +178,26 @@
 			                'id' => '',
 			            ),
 			            'choices' => array(
-			                1 => __('Dans', 'regionhalland'),
-			                2 => __('Film', 'regionhalland'),
-			                3 => __('Musik', 'regionhalland'),
+			            	1 => 'Dans',
+							2 => 'Film och rörlig bild',
+							3 => 'Bild- och formkonst',
+							4 => 'Litteratur och skrivande',
+							5 => 'Musik',
+							6 => 'Teater',
+							7 => 'Slöjd och Konsthantverk',
+							8 => 'Bibliotek',
+							9 => 'Kulturarv',
+							10 => 'Språkutveckling',
+							11 => 'Kultur i skolan',
+							12 => 'Kultur och hälsa'
 			            ),
 			            'default_value' => array(
 			            ),
 			            'allow_null' => 0,
-			            'multiple' => 0,
+			            'multiple' => 1,
 			            'ui' => 0,
 			            'ajax' => 0,
-			            'return_format' => 'value',
+			            'return_format' => 'array',
 			            'placeholder' => '',
 			        ),
 			        4 => array(
@@ -313,6 +332,25 @@
 			            'rows' => 2,
 			            'new_lines' => '',
 			        ),
+			        11 => array(
+						'key' => 'field_1000136',
+					    'label' => 'Entré',
+					    'name' => 'name_1000137',
+					    'type' => 'wysiwyg',
+					    'instructions' => 'Skriv och formatera informationstext',
+					    'required' => 0,
+					    'conditional_logic' => 0,
+					    'wrapper' => [
+					        'width' => '',
+					        'class' => '',
+					        'id' => '',
+					    ],
+					    'default_value' => '',
+					    'toolbar' => 'basic',
+					    'tabs' => 'text',
+					    'media_upload' => 0,
+					    'delay' => 0,
+					),
 			    ),
 			    'location' => array(
 			        0 => array(
@@ -343,21 +381,35 @@
 	}
 
 	// Returnera namnet på vald typ
-	function get_region_halland_acf_page_kulturarrangemang_type_name() {
-		$field_type = get_field_object('field_1000085');
-		return $field_type['choices'][get_field('name_1000086')];
+	function get_region_halland_acf_page_kulturarrangemang_type_labels() {
+		$field_object = get_field_object('field_1000085');;
+		$field_values = $field_object['value'];
+		$myFieldLabels = array();
+		foreach ($field_values as $value) {
+			array_push($myFieldLabels, array(
+	           'label'   => $value['label']
+	        ));
+		}
+		return $myFieldLabels;
 	}
 
 	// Returnera namnet på vald kategori
-	function get_region_halland_acf_page_kulturarrangemang_category_name() {
+	function get_region_halland_acf_page_kulturarrangemang_category_label() {
 		$field_type = get_field_object('field_1000088');
 		return $field_type['choices'][get_field('name_1000089')];
 	}
 	
 	// Returnera namnet på vald subkategori
-	function get_region_halland_acf_page_kulturarrangemang_subcategory_name() {
-		$field_type = get_field_object('field_1000091');
-		return $field_type['choices'][get_field('name_1000092')];
+	function get_region_halland_acf_page_kulturarrangemang_subcategory_labels() {
+		$field_object = get_field_object('field_1000091');;
+		$field_values = $field_object['value'];
+		$myFieldLabels = array();
+		foreach ($field_values as $value) {
+			array_push($myFieldLabels, array(
+	           'label'   => $value['label']
+	        ));
+		}
+		return $myFieldLabels;
 	}
 
 	// Returnera namnet på om det är fullbokat eller inte
@@ -381,6 +433,11 @@
 		return get_field('name_1000098');	
 	}
 
+	// Returnera entre
+	function get_region_halland_acf_page_kulturarrangemang_entre() {
+		return get_field('name_1000137');	
+	}
+
 	// Returnera starttid (dag)
 	function get_region_halland_acf_page_kulturarrangemang_start_tid_dag() {
 		
@@ -391,7 +448,7 @@
 		if ($kulturDagFirst == 0) {
 			$kulturStartTidDag = substr($kulturDag, 1, 1);
 		} else {
-			$kulturStartTidDag = $pageKulturDag;
+			$kulturStartTidDag = $kulturDag;
 		}
 		
 		// Returnera startid - dag
@@ -476,16 +533,30 @@
 			$page->date = get_the_date('Y-m-d', $page->ID);
 
 			// Kulturtyp
-			$field_type_typ = get_field_object('field_1000085', $page->ID);
-			$page->kultur_typ = $field_type_typ['choices'][get_field('name_1000086', $page->ID)];
+			$field_object = get_field_object('field_1000085', $page->ID);;
+			$field_values = $field_object['value'];
+			$myFieldTypeLabels = array();
+			foreach ($field_values as $value) {
+				array_push($myFieldTypeLabels, array(
+		           'label'   => $value['label']
+		        ));
+			}
+			$page->type_labels = $myFieldTypeLabels;
 
 			// Kategori
 			$field_type_category = get_field_object('field_1000088', $page->ID);
 			$page->kultur_category = $field_type_category['choices'][get_field('name_1000089', $page->ID)];
 			
 			// Subkategori
-			$field_type_sub_category = get_field_object('field_1000091', $page->ID);
-			$page->kultur_sub_category = $field_type_sub_category['choices'][get_field('name_1000092', $page->ID)];
+			$field_object = get_field_object('field_1000091', $page->ID);;
+			$field_values = $field_object['value'];
+			$myFieldSubCatLabels = array();
+			foreach ($field_values as $value) {
+				array_push($myFieldSubCatLabels, array(
+		           'label'   => $value['label']
+		        ));
+			}
+			$page->sub_category_labels = $myFieldSubCatLabels;
 
 			// Fullbokat
 			$tmpFullbokat = is_array(get_field('name_1000095', $page->ID));
@@ -520,6 +591,8 @@
 			// Målgrupp
 			$page->kultur_malgrupp = get_field('name_1000106', $page->ID);
 		
+			// Målgrupp
+			$page->kultur_entre = get_field('name_1000137', $page->ID);
 		}
 		
 		// Returnera array med alla poster
