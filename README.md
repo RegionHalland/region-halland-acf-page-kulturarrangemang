@@ -180,7 +180,7 @@ array (size=2)
 
 ## Versionhistorik
 
-### 2.2.1
+### 2.3.0
 - Entré är ändrad från textarea till texteditor
 
 ### 2.2.0

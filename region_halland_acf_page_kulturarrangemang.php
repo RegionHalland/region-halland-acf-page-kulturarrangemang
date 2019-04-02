@@ -6,7 +6,7 @@
 	/*
 	Plugin Name: Region Halland ACF Page Kulturarrangemang
 	Description: ACF-fält för extra fält nederst på en kulturarrangemangs-sida
-	Version: 2.2.1
+	Version: 2.3.0
 	Author: Roland Hydén
 	License: MIT
 	Text Domain: regionhalland
