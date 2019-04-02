@@ -6,7 +6,7 @@
 	/*
 	Plugin Name: Region Halland ACF Page Kulturarrangemang
 	Description: ACF-fält för extra fält nederst på en kulturarrangemangs-sida
-	Version: 2.2.0
+	Version: 2.2.1
 	Author: Roland Hydén
 	License: MIT
 	Text Domain: regionhalland
@@ -277,25 +277,25 @@
 		              'return_format' => 'Y-m-d', 
 		              'first_day' => 1, 
 		           	),
-			       	8 => array(
-			        	'key' => 'field_1000101',
-			            'label' => __('Plats', 'regionhalland'),
-			            'name' => 'name_1000102',
-			            'type' => 'text',
-			            'instructions' => __('Plats. Max 100 tecken.', 'regionhalland'),
-			            'required' => 0,
-			            'conditional_logic' => 0,
-			            'wrapper' => array(
-			                'width' => '',
-			                'class' => '',
-			                'id' => '',
-			            ),
-			            'default_value' => '',
-			            'placeholder' => __('', 'regionhalland'),
-			            'maxlength' => 100,
-			            'rows' => 2,
-			            'new_lines' => '',
-			       	),
+			        8 => array(
+						'key' => 'field_1000101',
+					    'label' => 'Plats',
+					    'name' => 'name_1000102',
+					    'type' => 'wysiwyg',
+					    'instructions' => 'Information om plats',
+					    'required' => 0,
+					    'conditional_logic' => 0,
+					    'wrapper' => [
+					        'width' => '',
+					        'class' => '',
+					        'id' => '',
+					    ],
+					    'default_value' => '',
+					    'toolbar' => 'basic',
+					    'tabs' => 'text',
+					    'media_upload' => 0,
+					    'delay' => 0,
+					),
 		          	9 => array( 
 		          	  'key' => 'field_1000103', 
 		              'label' => __('Sista anmälningsdag', 'regionhalland'), 

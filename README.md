@@ -180,11 +180,14 @@ array (size=2)
 
 ## Versionhistorik
 
+### 2.2.1
+- Entré är ändrad från textarea till texteditor
+
 ### 2.2.0
 - Fler typer och möjlighet att välja en eller flera
 - Fler underkategorier och möjlighet att välja en eller flera
 - Plats är ändrad från textarea till texteditor
-- Nytt fält Entré som texteditor
+- Nytt fält Entré som textarea
 
 ### 2.1.1
 - Justerat funktioner för tid och månad
