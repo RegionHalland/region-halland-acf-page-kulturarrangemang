@@ -10,6 +10,15 @@ Nedan följer instruktioner hur du kan använda pluginet "region-halland-acf-pag
 Denna plugin ger möjlighet att skapa poster med kulturarrangemang
 
 
+## Licensmodell
+
+Denna plugin använder licensmodell GPL-3.0. Du kan läsa mer om denna licensmodell på:
+```sh
+A) Gnu.org (https://www.gnu.org/licenses/gpl-3.0.html)
+B) Wikipedia (https://sv.wikipedia.org/wiki/GNU_General_Public_License)
+```
+
+
 ## Installation och aktivering
 
 ```sh
@@ -179,6 +188,9 @@ array (size=2)
 
 
 ## Versionhistorik
+
+### 2.4.0
+- Uppdaterat information om licensmodell
 
 ### 2.3.0
 - Entré är ändrad från textarea till texteditor
